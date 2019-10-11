@@ -1,3 +1,4 @@
+---
 kind: StoragePoolClaim
 apiVersion: openebs.io/v1alpha1
 metadata:

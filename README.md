@@ -7,6 +7,11 @@
 3. Create a StoragePoolClaim matching those disks
 4. Create a StorageClass matching that claim
 
+### 0. Read the docs!
+* https://docs.openebs.io/docs/next/ugcstor.html
+* https://docs.openebs.io/docs/next/casengines.html
+** https://docs.openebs.io/docs/next/uglocalpv.html
+** https://docs.openebs.io/docs/next/jivaguide.html
 
 ### 1. Install OpenEBS
 
@@ -58,4 +63,61 @@ In the preceeding note some sparse devs are present.  In this case these are the
 
 ### 3. Create a cStor StoragePoolClaim
 
+Like so:
+```
+kind: StoragePoolClaim
+apiVersion: openebs.io/v1alpha1
+metadata:
+  name: cStor
+  annotations:
+    cas.openebs.io/config: |
+      - name: PoolResourceRequests
+        value: |-
+          memory: 2Gi
+      - name: PoolResourceLimits
+        value: |-
+          memory: 4Gi
+spec:
+  name: cStor
+  type: disk
+  poolSpec:
+    poolType: striped
+  blockDevices:
+    blockDeviceList:
+      - blockdevice-4367569c506a7b757738fdaa7d50030d
+      - blockdevice-7567bc6317a14b1ee331ed34dc0218b2
+      - blockdevice-8bf90bb7b0fc09345455a02dfe484e61
+      - blockdevice-c6fe90dbb3847e4b6aafd21368d226d3
+      - blockdevice-ca534d050ab5ae496ef453da3a3d6508
+      - blockdevice-f2504cf77338ed627d1a3ace17dbd107
+```
 
+Note the 2G memory request.  If you don't have 2-4G to dedicate to
+your cloud native storage controller, but you want replication, take a
+look at Jiva (https://docs.openebs.io/docs/next/jivaguide.html).  If
+you don't need replication, use OpenEBS LocalPV
+(https://docs.openebs.io/docs/next/uglocalpv.html).
+
+### 4. Create a cStor StorageClass
+
+```
+---
+kind: StorageClass
+apiVersion: storage.k8s.io/v1
+metadata:
+  name: cStor
+  annotations:
+    openebs.io/cas-type: cstor
+    cas.openebs.io/config: |
+      - name: StoragePoolClaim
+        value: "cStor"
+      - name: ReplicaCount
+        value: "3"
+    storageclass.kubernetes.io/is-default-class: 'true'
+provisioner: openebs.io/provisioner-iscsi
+```
+
+Note the StoragePoolClaim value matches the name of the
+StoragePoolClaim we've created.  Note also the ReplicaCount of 3,
+indicating that we'll create cstor pods on 3 nodes to redundantly host
+this data.
