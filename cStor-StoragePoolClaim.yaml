@@ -2,7 +2,7 @@
 kind: StoragePoolClaim
 apiVersion: openebs.io/v1alpha1
 metadata:
-  name: cStor
+  name: cstor
   annotations:
     cas.openebs.io/config: |
       - name: PoolResourceRequests
@@ -12,7 +12,7 @@ metadata:
         value: |-
           memory: 4Gi
 spec:
-  name: cStor
+  name: cstor
   type: disk
   poolSpec:
     poolType: striped
