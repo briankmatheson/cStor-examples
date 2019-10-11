@@ -117,7 +117,16 @@ metadata:
 provisioner: openebs.io/provisioner-iscsi
 ```
 
-Note the StoragePoolClaim value matches the name of the
-StoragePoolClaim we've created.  Note also the ReplicaCount of 3,
-indicating that we'll create cstor pods on 3 nodes to redundantly host
-this data.
+* Note the StoragePoolClaim value matches the name of the
+StoragePoolClaim we've created.
+
+* Note also the ReplicaCount of 3, indicating that we'll create cstor
+pods on 3 nodes to redundantly data of this class.
+
+* And we're making this the default storage class for new claims.
+
+### 5. Use your new default cStor StorageClass!
+
+`helm install minio helm/minio`
+`kubectl get pvc minio`
+
