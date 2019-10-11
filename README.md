@@ -68,7 +68,7 @@ Like so:
 kind: StoragePoolClaim
 apiVersion: openebs.io/v1alpha1
 metadata:
-  name: cStor
+  name: cstor
   annotations:
     cas.openebs.io/config: |
       - name: PoolResourceRequests
@@ -78,7 +78,7 @@ metadata:
         value: |-
           memory: 4Gi
 spec:
-  name: cStor
+  name: cstor
   type: disk
   poolSpec:
     poolType: striped
@@ -105,12 +105,12 @@ you don't need replication, use OpenEBS LocalPV
 kind: StorageClass
 apiVersion: storage.k8s.io/v1
 metadata:
-  name: cStor
+  name: cstor
   annotations:
     openebs.io/cas-type: cstor
     cas.openebs.io/config: |
       - name: StoragePoolClaim
-        value: "cStor"
+        value: "cstor"
       - name: ReplicaCount
         value: "3"
     storageclass.kubernetes.io/is-default-class: 'true'
