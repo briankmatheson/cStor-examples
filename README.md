@@ -24,7 +24,7 @@
 
 #### Pull down and inspect the operator manifest:
 
-* `wget https://openebs.github.io/charts/openebs-operator-1.2.0.yaml`
+* `wget https://openebs.github.io/charts/openebs-operator.yaml`
 
 Setup disk filters for Node Disk Manager if needed (you may want to
 ignore some devices).  You can search for the 'exclude' line, and
