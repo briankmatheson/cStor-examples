@@ -34,7 +34,7 @@ update the comma-separated list of device node paths:
 
 #### Install OpenEBS:
 
-* `kubectl apply -f openebs-operator-1.2.0.yaml`
+* `kubectl apply -f openebs-operator.yaml`
 
 #### And watch it come up:
 
