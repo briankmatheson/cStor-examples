@@ -130,3 +130,5 @@ pods on 3 nodes to redundantly data of this class.
 `helm install minio helm/minio`
 `kubectl get pvc minio`
 
+
+
