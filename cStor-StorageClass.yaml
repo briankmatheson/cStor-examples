@@ -9,6 +9,6 @@ metadata:
       - name: StoragePoolClaim
         value: "cstor"
       - name: ReplicaCount
-        value: "3"
+        value: "1"
     storageclass.kubernetes.io/is-default-class: 'true'
 provisioner: openebs.io/provisioner-iscsi
