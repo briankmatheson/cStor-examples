@@ -17,10 +17,6 @@ spec:
   poolSpec:
     poolType: striped
   blockDevices:
-    blockDeviceList:
-      - blockdevice-4367569c506a7b757738fdaa7d50030d
-      - blockdevice-7567bc6317a14b1ee331ed34dc0218b2
-      - blockdevice-8bf90bb7b0fc09345455a02dfe484e61
-      - blockdevice-c6fe90dbb3847e4b6aafd21368d226d3
-      - blockdevice-ca534d050ab5ae496ef453da3a3d6508
-      - blockdevice-f2504cf77338ed627d1a3ace17dbd107
+    blockDeviceList
+    - blockdevice-06410c91410493c86969c212d9735342
+    - blockdevice-e927d12d98e7fa32fd5870e1397b7e37
