@@ -1,7 +1,7 @@
 # cStor Examples
 
-## note: these mechanisms will be changing soon.  For a sample of the new style configuration syntax
-##   See csi-sc.yaml and cspc.yaml
+## note: these mechanisms will be changing soon.  
+For a sample of the new style configuration syntax, see csi-sc.yaml and cspc.yaml
 
 ## set up a cStor storage class
 ​
