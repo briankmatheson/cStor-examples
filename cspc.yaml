@@ -1,0 +1,64 @@
+apiVersion: openebs.io/v1alpha1
+kind: CStorPoolCluster
+metadata:
+  annotations:
+  name: cstor-pool
+  namespace: openebs
+spec:
+  auxResources: null
+  pools:
+  - nodeSelector:
+      kubernetes.io/hostname: ip-172-20-58-172.us-east-2.compute.internal
+    poolConfig:
+      compression: "off"
+      defaultRaidGroupType: stripe
+      overProvisioning: false
+    raidGroups:
+    - blockDevices:
+      - blockDeviceName: blockdevice-54b5e9810a2d5f6601ca2a38d491a15e
+      isReadCache: false
+      isSpare: false
+      isWriteCache: false
+      type: stripe
+  - nodeSelector:
+      kubernetes.io/hostname: ip-172-20-51-185.us-east-2.compute.internal
+    poolConfig:
+      compression: "off"
+      defaultRaidGroupType: stripe
+      overProvisioning: false
+    raidGroups:
+    - blockDevices:
+      - blockDeviceName: blockdevice-f08650cf430f8eda0345b7ac091d1841
+      isReadCache: false
+      isSpare: false
+      isWriteCache: false
+      type: stripe
+  - nodeSelector:
+      kubernetes.io/hostname: ip-172-20-54-76.us-east-2.compute.internal
+    poolConfig:
+      compression: "off"
+      defaultRaidGroupType: stripe
+      overProvisioning: false
+    raidGroups:
+    - blockDevices:
+      - blockDeviceName: blockdevice-aab6116beb36ca7d1c15f7ff38985d96
+      isReadCache: false
+      isSpare: false
+      isWriteCache: false
+      type: stripe
+  - nodeSelector:
+      kubernetes.io/hostname: ip-172-20-52-39.us-east-2.compute.internal
+    poolConfig:
+      compression: "off"
+      defaultRaidGroupType: stripe
+      overProvisioning: false
+    raidGroups:
+    - blockDevices:
+      - blockDeviceName: blockdevice-9c7c200b2f35a3e6c58b8c846f37c836
+      isReadCache: false
+      isSpare: false
+      isWriteCache: false
+      type: stripe
+  priorityClassName: ""
+  resources: null
+  tolerations: null
