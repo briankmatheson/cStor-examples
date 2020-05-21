@@ -7,6 +7,6 @@ provisioner: cstor.csi.openebs.io
 allowVolumeExpansion: true
 parameters:
   cas-type: cstor
-  replicaCount: "1"
+  replicaCount: "3"
   cstorPoolCluster: cstor-pool
 
